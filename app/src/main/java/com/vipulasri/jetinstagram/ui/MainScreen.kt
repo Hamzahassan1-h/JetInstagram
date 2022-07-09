@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.vipulasri.jetinstagram.R
 import com.vipulasri.jetinstagram.model.currentUser
+import com.vipulasri.jetinstagram.ui.Favorite.FavoritesScreen
 import com.vipulasri.jetinstagram.ui.HomeSection.Add
 import com.vipulasri.jetinstagram.ui.HomeSection.Favorite
 import com.vipulasri.jetinstagram.ui.HomeSection.Home
@@ -31,6 +32,7 @@ import com.vipulasri.jetinstagram.ui.HomeSection.Reels
 import com.vipulasri.jetinstagram.ui.components.bottomBarHeight
 import com.vipulasri.jetinstagram.ui.components.icon
 import com.vipulasri.jetinstagram.ui.home.Home
+import com.vipulasri.jetinstagram.ui.profile.ProfileScreen
 import com.vipulasri.jetinstagram.ui.reels.Reels
 
 @ExperimentalFoundationApi
@@ -58,8 +60,8 @@ fun MainScreen() {
             Home -> Home()
             Reels -> Reels()
             Add -> Content(title = "Add Post options")
-            Favorite -> Content(title = "Favorite")
-            Profile -> Content(title = "Profile")
+            Favorite -> FavoritesScreen()
+            Profile -> ProfileScreen()
         }
     }
   }
@@ -137,7 +139,8 @@ private fun BottomBarProfile(isSelected: Boolean) {
       modifier = borderModifier
   ) {
     Box(
-        modifier = Modifier.icon()
+        modifier = Modifier
+            .icon()
             .padding(padding)
             .background(color = Color.LightGray, shape = shape)
             .clip(shape)
